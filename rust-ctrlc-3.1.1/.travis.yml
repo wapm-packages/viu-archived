@@ -1,0 +1,19 @@
+language: rust
+cache: cargo
+rust:
+  - stable
+  - beta
+  - nightly
+env:
+matrix:
+  include:
+    - rust: nightly
+      env: SYNTAX_CHECK=1
+      install:
+        - cargo install --force rustfmt-nightly
+      script:
+        - cargo fmt -- --check
+
+notifications:
+    email: false
+sudo: false
