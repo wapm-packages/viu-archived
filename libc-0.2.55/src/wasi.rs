@@ -605,6 +605,17 @@ pub const __WASI_WHENCE_CUR: u8 = 0;
 pub const __WASI_WHENCE_END: u8 = 1;
 pub const __WASI_WHENCE_SET: u8 = 2;
 
+pub type sighandler_t = ::size_t;
+
+pub const SIG_DFL: sighandler_t = 0 as sighandler_t;
+pub const SIGPIPE: ::c_int = 13;
+pub const TIOCGWINSZ: c_int = 21523;
+
+extern {
+    pub fn ioctl(fd: ::c_int, request: ::c_int, ...) -> ::c_int;
+    pub fn signal(signum: ::c_int, handler: sighandler_t) -> sighandler_t;
+}
+
 #[cfg_attr(
     feature = "rustc-dep-of-std",
     link(name = "c", kind = "static", cfg(target_feature = "crt-static"))
