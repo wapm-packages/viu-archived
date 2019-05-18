@@ -19,3 +19,4 @@ gif = "0.10.1"
 
 [patch.crates-io]
 ctrlc = { path = '../rust-ctrlc-3.1.1' }
+libc = { path = '../libc-0.2.55' }
