@@ -7,11 +7,17 @@
 // notice may not be copied, modified, or distributed except
 // according to those terms.
 
+#[cfg(target_arch = "wasm32")]
+mod wasm32;
+
 #[cfg(unix)]
 mod unix;
 
 #[cfg(windows)]
 mod windows;
+
+#[cfg(target_arch = "wasm32")]
+pub use self::wasm32::*;
 
 #[cfg(unix)]
 pub use self::unix::*;

@@ -17,7 +17,7 @@ winapi = { version = "0.3", features = ["consoleapi", "handleapi", "synchapi", "
 
 [target.'cfg(windows)'.dev-dependencies]
 winapi = { version = "0.3", features = ["fileapi", "processenv", "winnt"] }
- 
+
 [features]
 termination = []
 
